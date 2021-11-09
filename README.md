@@ -4,7 +4,7 @@ Generalized unscented transform for probability distributions
 ## Description
 This package contains the code that can be used to reproduce the results in our paper titled `A Generalized Unscented Transformation for Probability Distributions`. 
 
-The paper can be found [here](https://arxiv.org/abs/2006.13429).
+The paper can be found [here](https://arxiv.org/abs/2104.01958).
 
 The code structure, run instructions, and any special notes are given below.
 
