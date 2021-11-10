@@ -16,12 +16,12 @@ The code structure, run instructions, and any special notes are given below.
 - **Evaluate_sample_statistics.m** (Evaluates the sample statistics of sigma points)
 - **Examples_1_and_2.m** (Generates the results Examples 1 and 2 in our paper)
 
-**/Unscented Transforms**
+- **/Unscented Transforms**
 - `GenUT_Ensemble.m` (Generates the sigma points using our generalized unscented transform)
 - `HOSP.m` (Generates the sigma points using the higher order sigma point unscented transform)
 - `unscentedEnsemble.m` (Generates the sigma points using the scaled unscented transform)
 
-**/Distribution Moments**
+- **/Distribution Moments**
 - `Beta_moments.m` (Generates the moments for a Beta distribution)
 - `Binomial_moments.m` (Generates the moments for a Binomial distribution)
 - `Exponential_moments.m` (Generates the moments for an Exponential distribution)
@@ -36,3 +36,20 @@ The code structure, run instructions, and any special notes are given below.
 ---
 
 ### Run Instructions
+Below are the run instructions to generate the results shown in our paper, as well as to generate resuts for other applications.
+
+#### Run examples 1 and 2 in the paper
+1. Run the `Examples_1_and_2.m` file. 
+
+#### Run case study 1 in the paper
+1. Run the `Case_study_1a.m` file to see the performance on the quadratic function of a random variable of different probability distributions. 
+2. Run the `Case_study_1b.m` file to see the performance on the trigonometric function of a random variable of different probability distributions.
+3. Run the `Case_study_1c.m` file to see the performance on the trigonometric function of a Poisson and Weibull random variable.
+
+#### Run case study 2 in the paper
+1. Run the `Case_study_2.m` file to see the performance on the vector of trigonometric functions.
+
+#### Run case study 3 in the paper
+1. Run the `Case_study_3.m` file to see the performance on the infectious disease model.
+
+
