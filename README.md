@@ -36,10 +36,10 @@ The code structure, run instructions, and any special notes are given below.
 ---
 
 ### Run Instructions
-Below are the run instructions to generate the results shown in our paper, as well as to generate resuts for other applications.
+Below are the run instructions to generate the results shown in our paper, as well as to generate resuts for other applications. We note that the only files capable of running are the `Examples_1_and_2.m`, `Case_study_1a.m`, `Case_study_1b.m`, `Case_study_1c.m`, `Case_study_2.m`,  and `Case_study_2.3.m` files. Other `m-files` only run by supplying the appropriate input arguments. Please see the `m-file` you want to run for its inut argument description.
 
 #### Run examples 1 and 2 in the paper
-1. Run the `Examples_1_and_2.m` file. 
+Run the `Examples_1_and_2.m` file to see the performance of the constrained and unconstrained versions of our sigma points.
 
 #### Run case study 1 in the paper
 1. Run the `Case_study_1a.m` file to see the performance on the quadratic function of a random variable of different probability distributions. 
@@ -47,9 +47,15 @@ Below are the run instructions to generate the results shown in our paper, as we
 3. Run the `Case_study_1c.m` file to see the performance on the trigonometric function of a Poisson and Weibull random variable.
 
 #### Run case study 2 in the paper
-1. Run the `Case_study_2.m` file to see the performance on the vector of trigonometric functions.
+Run the `Case_study_2.m` file to see the performance on the vector of trigonometric functions.
 
 #### Run case study 3 in the paper
-1. Run the `Case_study_3.m` file to see the performance on the infectious disease model.
+Run the `Case_study_3.m` file to see the performance on the infectious disease model.
 
+### Generate sigma points using our Generalized Unscented Transform (GenUT)
+Run the `GenUT_Ensemble.m` file. The minimum input arguments that need to be supplied are the mean and covariance.
 
+To constrain the sigma points, the mean must fall within the lower bound (`lb`) and upper bound (`ub`) arguments. 
+
+### Analyze sample statistics of sigma points
+Run the `Evaluate_sample_statistics.m` file by passing in two arguments; the sigma points and the weights.
