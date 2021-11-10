@@ -53,9 +53,12 @@ Run the `Case_study_2.m` file to see the performance on the vector of trigonomet
 Run the `Case_study_3.m` file to see the performance on the infectious disease model.
 
 ### Generate sigma points using our Generalized Unscented Transform (GenUT)
-Run the `GenUT_Ensemble.m` file. The minimum input arguments that need to be supplied are the mean and covariance.
+Run the `GenUT_Ensemble.m` file. The minimum input arguments that need to be supplied are the mean and covariance. Optional arguments include the diagonal components of the skewness and kurtosis tensors, and the lower and upper bounds.
 
 To constrain the sigma points, the mean must fall within the lower bound (`lb`) and upper bound (`ub`) arguments. 
 
 ### Analyze sample statistics of sigma points
 Run the `Evaluate_sample_statistics.m` file by passing in two arguments; the sigma points and the weights.
+
+### Generate moments for any of the 10 probability distributions 
+Run the `m-file` in the folder **/Distribution Moments** that corresponds to your probability distribution of choice.`The appropriate input argument is given in the file. Each moment file outputs the mean, second central moment (variance), third central moment (skewness), fourth central moment (kurtosis), and a vector of the first four raw moments.
