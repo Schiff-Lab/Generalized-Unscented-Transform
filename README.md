@@ -8,13 +8,13 @@ The paper can be found [here](https://arxiv.org/abs/2104.01958).
 The code structure, run instructions, and any special notes are given below.
 
 ### Code Structure
-- **Case_study_1a.m** (Generates the results of the first part of case study 1 in our paper)
-- **Case_study_1b.m** (Generates the results of the second part of case study 1 in our paper)
-- **Case_study_1c.m** (Generates the results of the last part of case study 1 in our paper)
-- **Case_study_2.m** (Generates the results of case study 2 in our paper)
-- **Case_study_3.m** (Generates case study 3 in our paper)
-- **Evaluate_sample_statistics.m** (Evaluates the sample statistics of sigma points)
-- **Examples_1_and_2.m** (Generates the results Examples 1 and 2 in our paper)
+- **`Case_study_1a.m`** (Generates the results of the first part of case study 1 in our paper)
+- **`Case_study_1b.m`** (Generates the results of the second part of case study 1 in our paper)
+- **`Case_study_1c.m`** (Generates the results of the last part of case study 1 in our paper)
+- **`Case_study_2.m`** (Generates the results of case study 2 in our paper)
+- **`Case_study_3.m`** (Generates case study 3 in our paper)
+- **`Evaluate_sample_statistics.m`** (Evaluates the sample statistics of sigma points)
+- **`Examples_1_and_2.m`** (Generates the results Examples 1 and 2 in our paper)
 
 - **/Unscented Transforms**
     - `GenUT_Ensemble.m` (Generates the sigma points using our generalized unscented transform)
