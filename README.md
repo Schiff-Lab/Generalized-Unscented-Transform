@@ -17,21 +17,21 @@ The code structure, run instructions, and any special notes are given below.
 - **Examples_1_and_2.m** (Generates the results Examples 1 and 2 in our paper)
 
 - **/Unscented Transforms**
-- `GenUT_Ensemble.m` (Generates the sigma points using our generalized unscented transform)
-- `HOSP.m` (Generates the sigma points using the higher order sigma point unscented transform)
-- `unscentedEnsemble.m` (Generates the sigma points using the scaled unscented transform)
+    - `GenUT_Ensemble.m` (Generates the sigma points using our generalized unscented transform)
+    - `HOSP.m` (Generates the sigma points using the higher order sigma point unscented transform)
+    - `unscentedEnsemble.m` (Generates the sigma points using the scaled unscented transform)
 
 - **/Distribution Moments**
-- `Beta_moments.m` (Generates the moments for a Beta distribution)
-- `Binomial_moments.m` (Generates the moments for a Binomial distribution)
-- `Exponential_moments.m` (Generates the moments for an Exponential distribution)
-- `Gamma_moments.m` (Generates the moments for a Gamma distribution)
-- `Gaussian_moments.m` (Generates the moments for a Gaussian distribution)
-- `Geometric_moments.m` (Generates the moments for a Geometric distribution)
-- `Negative_Binomial_moments.m` (Generates the moments for a Negative Binomial distribution)
-- `Poisson_moments.m` (Generates the moments for a Poisson distribution)
-- `Rayleigh_moments.m` (Generates the moments for a Rayleigh distribution)
-- `Weibull_moments.m` (Generates the moments for a Weibull distribution)
+    - `Beta_moments.m` (Generates the moments for a Beta distribution)
+    - `Binomial_moments.m` (Generates the moments for a Binomial distribution)
+    - `Exponential_moments.m` (Generates the moments for an Exponential distribution)
+    - `Gamma_moments.m` (Generates the moments for a Gamma distribution)
+    - `Gaussian_moments.m` (Generates the moments for a Gaussian distribution)
+    - `Geometric_moments.m` (Generates the moments for a Geometric distribution)
+    - `Negative_Binomial_moments.m` (Generates the moments for a Negative Binomial distribution)
+    - `Poisson_moments.m` (Generates the moments for a Poisson distribution)
+    - `Rayleigh_moments.m` (Generates the moments for a Rayleigh distribution)
+    - `Weibull_moments.m` (Generates the moments for a Weibull distribution)
 
 ---
 
