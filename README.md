@@ -36,7 +36,7 @@ The code structure, run instructions, and any special notes are given below.
 ---
 
 ### Run Instructions
-Below are the run instructions to generate the results shown in our paper, as well as to generate resuts for other applications. We note that the only files capable of running are the `Examples_1_and_2.m`, `Case_study_1a.m`, `Case_study_1b.m`, `Case_study_1c.m`, `Case_study_2.m`,  and `Case_study_2.3.m` files. Other `m-files` only run by supplying the appropriate input arguments. Please see the `m-file` you want to run for its inut argument description.
+Below are the run instructions to generate the results shown in our paper, as well as to generate resuts for other applications. We note that the only files capable of running without the need to supply any input arguments are the `Examples_1_and_2.m`, `Case_study_1a.m`, `Case_study_1b.m`, `Case_study_1c.m`, `Case_study_2.m`,  and `Case_study_2.3.m` files. Other `m-files` only run by supplying the appropriate input arguments. Please see the `m-file` you want to run for its inut argument description.
 
 #### Run examples 1 and 2 in the paper
 Run the `Examples_1_and_2.m` file to see the performance of the constrained and unconstrained versions of our sigma points.
