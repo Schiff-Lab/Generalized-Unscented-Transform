@@ -6,32 +6,46 @@ addpath('Distribution Moments');
 addpath('Unscented Transforms');
 
 %%
-% Poisson(0.1)
-mu_Poiss = 0.1;               % Mean Poisson random var
-P_poiss = mu_Poiss;           % Covariance of Poissom randon var
-skewX_poiss = mu_Poiss;       % Diagonal component of skewness
-kurtX_poiss = 3*mu_Poiss.^2 + mu_Poiss;   % Diagonal component of kurtosis
+alpha1 = 1;     % shape parameter 1
+alpha2 = 2;     % shape parameter 2
+beeta = 0.3;      % scale parameter
 
-% Rayleigh (1)
-sigma = 1;                      
-mu_Ray = sigma*sqrt(pi/2);      % Mean of Rayleigh random var
-P_Ray = (2 - pi/2)*sigma^2;     % Covariance of Rayleigh random var
-skewX_Ray = sigma^3*sqrt(pi/2)*(pi - 3);       % Diagonal component of skewness
-kurtX_Ray = -(sigma^4*(3*pi^2 - 32))/4;        % Diagonal component of kurtosis
+alpha_x1 = alpha1;     % =  
+alpha_x2 = alpha1 + alpha2;     % =   
+E_x1_x2 =  alpha_x1*(alpha_x2 +1)*beeta^2; % E[ x1*x2 ]
 
+% Gamma(1,0.3)
+mu_x1 = alpha_x1*beeta;            % Mean Gamma random var
+P_x1 = alpha_x1*beeta^2;           % Covariance of Gamma randon var
+skew_x1 = 2*alpha_x1*beeta^3;      % Diagonal component of skewness
+kurt_x1 =  3*alpha_x1*beeta^4*(alpha_x1 + 2);   % Diagonal component of kurtosis
+
+% Gamma(3,0.3)                
+mu_x2 = alpha_x2*beeta;            % Mean of Gamma random var
+P_x2 = alpha_x2*beeta^2;           % Covariance of Gamma random var
+skew_x2 = 2*alpha_x2*beeta^3;      % Diagonal component of skewness
+kurt_x2 = 3*alpha_x2*beeta^4*(alpha_x2 + 2);        % Diagonal component of kurtosis
+
+cross_cov =  E_x1_x2 - mu_x1*mu_x2; % Off-diagonal term of covariance matrix
 % Combined mean, variance, skewness, and kurtosis
-mu = [mu_Poiss; mu_Ray];            % Mean
-P = diag([P_poiss  P_Ray]);         % Covariance
-skewX = [skewX_poiss; skewX_Ray];   % Diagonal component of skewness
-kurtX = [kurtX_poiss; kurtX_Ray];   % Diagonal component of kurtosis
-n = length(mu);                     % Dimension of random vector
+mu = [mu_x1; mu_x2];            % Mean
+P =  [P_x1   cross_cov;  cross_cov  P_x2];         % Covariance Matrix
+skewX = [skew_x1; skew_x2];     % Diagonal component of skewness
+kurtX = [kurt_x1; kurt_x2];     % Diagonal component of kurtosis
+n = length(mu);                 % Dimension of random vector
 
-% Monte Carlo Draws
-x1 = poissrnd(mu_Poiss.*ones(1, 10000000));
-x2 = raylrnd(  sigma.*ones(1, 10000000)   );
-x = [x1;x2];
+% Create correlated Gamma random vector via Monte Carlo Draws
+nummonte = 10^7;
+Temp1 = gamrnd(alpha1,beeta,1,nummonte); Temp2 = gamrnd(alpha2,beeta,1,nummonte);   
+X1 = Temp1;   X2 = Temp1 + Temp2;   % New correlated Gamma random numbers
+                                    % Correlation achieved via Temp1
+                                            
+x = [X1; X2];
 y_monte100000 = nonlinTrans(x);
-y_mean_true = mean(y_monte100000,2);
+% y_mean_true = mean(y_monte100000,2);
+E_sin_theta = sin(alpha_x1*atan(beeta)) / ( sqrt(1+ beeta^2) )^alpha_x1; % E [  sin(theta) ]
+E_cos_theta = cos(-alpha_x2*atan(beeta)) / ( sqrt(1+ beeta^2) )^alpha_x2;  % E [  cos(theta) ]
+y_mean_true = [E_sin_theta;E_cos_theta];
 y_cov_true = cov(y_monte100000');
 
 % Scaled UT Draws
@@ -67,10 +81,8 @@ disp('UT covariance % error =');        disp(Acc_y_UT_cov);
 disp('HOSPUT covariance % error =');    disp(Acc_y_HOSPUT_cov);
 
 
+
 %%  Nonlinear function
 function y = nonlinTrans(x)
-y = [sin(x(1,:).*x(2,:)) ; cos(x(1,:).*x(2,:))];
+y = [sin(x(1,:)) ; cos(x(2,:))];
 end
-
-
- 
